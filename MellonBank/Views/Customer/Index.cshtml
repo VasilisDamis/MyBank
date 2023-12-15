@@ -1,0 +1,66 @@
+﻿@model MellonBank.Areas.Identity.Data.MellonBankUser
+
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+<h1> @Model.FirstName Αυτη ειναι η πλατφορμα σας</h1>
+<style>
+   
+    h1{
+        text-align: center;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        background-color: blueviolet;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+    
+</style>
+<body>
+
+    <form action="/process-choice" method="post">
+        <h2>Τι θα θελατε να κανετε?</h2>
+
+        <button  asp-action="ViewAccounts" asp-route-id="@Model.Id">
+            Προβολη Λογαριασμων          
+        </button>
+        <button  asp-action="ChangePassword" asp-route-id="@Model.Id">
+            Αλλαγη Password
+        </button>
+        <button  asp-action="Details" asp-route-id="@Model.Id">
+            Προβολη Στοιχειων μου
+        </button>
+        
+    </form>
+
+</body>
+
+
+
+
+
+

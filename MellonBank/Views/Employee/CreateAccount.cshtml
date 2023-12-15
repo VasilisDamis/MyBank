@@ -1,0 +1,44 @@
+﻿@using MellonBank.Models
+@model CreateAccount
+@{
+    ViewData["Title"] = "CreateAccount";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+
+<<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateAccount" method="post">
+            <h2>Create a new account.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" ></div>
+            <div class="form-floating mb-3">
+                <input asp-for="AFM" class="form-control" aria-required="true" placeholder="AFM" value="@Model.AFM" readonly />
+                <label asp-for="AFM">FirstName</label>
+                <span asp-validation-for="AFM" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="AccountNumber" class="form-control" aria-required="true" placeholder="Account number" value="@Model.AccountNumber" readonly />
+                <label asp-for="AccountNumber">Account Number</label>
+                <span asp-validation-for="AccountNumber" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Balance" class="form-control" aria-required="true" placeholder="Balance" />
+                <label asp-for="Balance">Balance</label>
+                <span asp-validation-for="Balance" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="AccountType" class="form-control" aria-required="true" placeholder="Account Type" />
+                <label asp-for="AccountType">Account Type</label>
+                <span asp-validation-for="AccountType" class="text-danger"></span>
+            </div>
+            
+            <div class="form-floating mb-3">
+                <input asp-for="ManagementBranch" class="form-control" aria-required="true" placeholder="Management Branch" />
+                <label asp-for="ManagementBranch">Management Branch</label>
+                <span asp-validation-for="ManagementBranch" class="text-danger"></span>
+            </div>
+           
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Create</button>
+        </form>

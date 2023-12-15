@@ -1,0 +1,50 @@
+﻿@model MellonBank.Models.UerAccountsViewModel
+@{
+    ViewData["Title"] = "View Accounts";
+}
+<style>
+    h1{
+        text-align :center
+    }
+</style>
+
+<h1>Mr/Mrs @Model.UserId Accounts</h1>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MellonnBankAccounts.First().AFM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MellonnBankAccounts.First().AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MellonnBankAccounts.First().Balance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var account in Model.MellonnBankAccounts)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => account.AFM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => account.AccountNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => account.Balance)
+                </td>
+                <td>
+                    <a asp-action="DeleteAccount" asp-route-AccountNumber="@account.AccountNumber">Delete</a> |
+                    <a asp-action="EditAccount" asp-route-AccountNumber="@account.AccountNumber">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,20 @@
+﻿@using MellonBank.Areas.Identity.Data
+@model MellonnBankAccounts
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Θελετε να διαγραψετε τον Λογαριασμο @Model.AccountNumber ?</h3>
+<div>
+    <form asp-action="DeleteAccount" asp-route-AccountNumber="@Model.AccountNumber" method="post">
+        @Html.AntiForgeryToken()
+
+             <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    </form>
+    <a asp-action="Index">Back to List</a>
+</div>

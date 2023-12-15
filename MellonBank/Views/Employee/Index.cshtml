@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MellonBank.Areas.Identity.Data.MellonBankUser>
+
+
+@{
+    ViewData["Title"] = "Index";
+   
+}
+
+<h1>Index</h1>
+
+
+ <div>
+    <form asp-action="SearchUsers"  method="post">
+        
+        <label for="name" color ="blue">Find User by Last Name:</label>
+        <input type="text" id="LastName" name="LastName" required />
+        <input type="submit" value="Find" class="btn btn-danger" />
+    </form>
+ </div>
+
+
+<p color="lightYellow"> OR</p>
+<p>
+    <a asp-controller="Employee" asp-action="CreateNewUser">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item != null)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        <a asp-action="EditUser" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Result" asp-route-id="@item.Id">Result</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                        <a asp-action="CreateAccount" asp-route-id="@item.Id">Create Account</a> |
+                        <a asp-action="ViewAccounts" asp-route-id="@item.Id">Details</a> 
+                        
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <h1>WElCOme</h1>
+            }
+        }
+    </tbody>
+</table>

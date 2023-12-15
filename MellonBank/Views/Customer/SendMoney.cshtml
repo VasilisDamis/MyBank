@@ -1,0 +1,38 @@
+﻿@using MellonBank.Areas.Identity.Data
+@using MellonBank.Models
+@model SendMoney
+
+@{
+    ViewData["Title"] = "Add money";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+
+    <div class="col-md-4">
+
+
+        <form asp-action="SendMoney" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="AccountNumber" class="form-control" aria-required="true" value="@Model.AccountNumber" />
+                <label asp-for="AccountNumber">AccountNumber </label>
+                <span asp-validation-for="AccountNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="ToAccountNumber" class="form-control" aria-required="true"  />
+                <label asp-for="ToAccountNumber">ToAccountNumber </label>
+                <span asp-validation-for="ToAccountNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Ammout" class="form-control" aria-required="true" />
+                <label asp-for="Ammout">Amount </label>
+                <span asp-validation-for="Ammout" class="text-danger"></span>
+            </div>
+
+            <button type="submit">Add Money</button>
+        </form>

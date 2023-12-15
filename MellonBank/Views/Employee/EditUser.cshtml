@@ -1,0 +1,48 @@
+﻿@using MellonBank.Models
+@model EditUser
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditUser" method="post">
+            <h2></h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="FirstName" class="form-control" aria-required="false" placeholder="FirstName" value=@Model.FirstName />
+                <label asp-for="FirstName">FirstName</label>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="LastName" class="form-control" aria-required="false" placeholder="LastName" value=@Model.LastName />
+                <label asp-for="LastName">LastName</label>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Email" class="form-control" aria-required="false" placeholder="name@example.com" value=@Model.Email />
+                <label asp-for="Email">Email</label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+         
+            <div class="form-floating mb-3">
+                <input asp-for="Address" class="form-control" aria-required="true" placeholder="Address" value=@Model.Address />
+                <label asp-for="Address">Address</label>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="AFM" class="form-control" aria-required="true" placeholder="AFM" value=@Model.AFM />
+                <label asp-for="AFM">AFM</label>
+                <span asp-validation-for="AFM" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Phone" class="form-control" aria-required="true" placeholder="Phone" value=@Model.Phone />
+                <label asp-for="Phone">Phone</label>
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Create</button>
+        </form>
